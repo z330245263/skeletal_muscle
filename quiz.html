@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自测练习 | 骨骼肌：结构与功能</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .quiz-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .quiz-intro {
+            margin-bottom: 2rem;
+        }
+        
+        .quiz-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .question {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            list-style: none;
+        }
+        
+        .option {
+            margin-bottom: 0.5rem;
+        }
+        
+        .option label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .option label:hover {
+            background-color: #f0f7ff;
+        }
+        
+        .option input {
+            margin-right: 1rem;
+        }
+        
+        .image-question img {
+            max-width: 100%;
+            margin: 1rem 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .matching-question .matching-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .matching-question .item-text {
+            flex: 1;
+        }
+        
+        .matching-question select {
+            padding: 0.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            background-color: white;
+            min-width: 200px;
+        }
+        
+        .short-answer-question textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            resize: vertical;
+            min-height: 100px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        .submit-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .submit-btn {
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .result-container {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background-color: #f0f7ff;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .result-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feedback {
+            margin-bottom: 1.5rem;
+        }
+        
+        .retry-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .retry-btn:hover {
+            background-color: #1a252f;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .dropdown-content a {
+                color: white;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>自测练习</h1>
+            <p class="subtitle">检验您对骨骼肌结构与功能的理解</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li>
+                    <a href="#">骨骼肌基础结构</a>
+                    <div class="dropdown-content">
+                        <a href="module1/overview.html">骨骼肌概述</a>
+                        <a href="module1/microstructure.html">骨骼肌的微观结构</a>
+                        <a href="module1/proteins.html">肌肉蛋白质与收缩装置</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌收缩机制</a>
+                    <div class="dropdown-content">
+                        <a href="module2/junction.html">神经肌肉接头</a>
+                        <a href="module2/coupling.html">兴奋-收缩偶联</a>
+                        <a href="module2/energy.html">肌肉收缩的能量供应</a>
+                        <a href="module2/fatigue.html">肌肉疲劳与恢复</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌纤维类型</a>
+                    <div class="dropdown-content">
+                        <a href="module3/classification.html">肌纤维类型的分类</a>
+                        <a href="module3/characteristics.html">肌纤维类型的功能特性</a>
+                        <a href="module3/performance.html">肌纤维类型与运动表现</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">肌肉力量的调节</a>
+                    <div class="dropdown-content">
+                        <a href="module4/mechanisms.html">肌肉力量产生的机制</a>
+                        <a href="module4/regulation.html">神经系统对肌肉力量的调节</a>
+                        <a href="module4/applications.html">实际应用与案例分析</a>
+                    </div>
+                </li>
+                <li><a href="quiz.html">自测练习</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="quiz-container">
+            <div class="quiz-intro">
+                <h2>骨骼肌结构与功能自测练习</h2>
+                <p>本自测练习旨在帮助您检验对骨骼肌结构与功能的理解。练习包含多种题型，涵盖课程的所有主要内容。完成后您将获得即时反馈和评分。</p>
+                <p>请认真思考每个问题，选择您认为最合适的答案。祝您好运！</p>
+            </div>
+            
+            <form id="quiz-form">
+                <div class="quiz-section">
+                    <h3 class="section-title">第一部分：骨骼肌基础结构</h3>
+                    
+                    <div class="question">
+                        <p class="question-text">1. 骨骼肌的基本结构单位是：</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q1" value="A">
+                                    A. 肌原纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q1" value="B">
+                                    B. 肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q1" value="C">
+                                    C. 肌节
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q1" value="D">
+                                    D. 肌束
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question image-question">
+                        <p class="question-text">2. 观察下图，标记为X的结构是：</p>
+                        <img src="images/sarcomere_quiz.jpg" alt="肌节结构图">
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q2" value="A">
+                                    A. Z线
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q2" value="B">
+                                    B. M线
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q2" value="C">
+                                    C. H带
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q2" value="D">
+                                    D. I带
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">3. 以下关于肌动蛋白和肌凝蛋白的描述，哪一项是错误的？</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q3" value="A">
+                                    A. 肌动蛋白是构成细肌丝的主要蛋白质
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q3" value="B">
+                                    B. 肌凝蛋白头部具有ATP酶活性
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q3" value="C">
+                                    C. 肌动蛋白分子比肌凝蛋白分子大
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q3" value="D">
+                                    D. 肌凝蛋白是构成粗肌丝的主要蛋白质
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="quiz-section">
+                    <h3 class="section-title">第二部分：骨骼肌收缩机制</h3>
+                    
+                    <div class="question">
+                        <p class="question-text">4. 肌肉收缩的滑动丝模型中，以下哪一项是正确的？</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q4" value="A">
+                                    A. 肌肉收缩时，粗细肌丝的长度缩短
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q4" value="B">
+                                    B. 肌肉收缩时，粗细肌丝的长度不变，但它们之间的重叠程度增加
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q4" value="C">
+                                    C. 肌肉收缩时，粗肌丝长度不变，细肌丝长度缩短
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q4" value="D">
+                                    D. 肌肉收缩时，粗肌丝和细肌丝都会缩短
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">5. 在神经肌肉接头处，神经冲动传递到肌肉的过程中，以下哪种物质作为神经递质？</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q5" value="A">
+                                    A. 多巴胺
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q5" value="B">
+                                    B. 乙酰胆碱
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q5" value="C">
+                                    C. 去甲肾上腺素
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q5" value="D">
+                                    D. 谷氨酸
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question matching-question">
+                        <p class="question-text">6. 将以下肌肉收缩过程中的事件与正确的顺序匹配：</p>
+                        <div class="matching-item">
+                            <span class="item-text">1. 第一步</span>
+                            <select name="q6_1">
+                                <option value="">请选择...</option>
+                                <option value="A">A. 钙离子与旋转蛋白C结合</option>
+                                <option value="B">B. 神经冲动到达神经末梢</option>
+                                <option value="C">C. 肌凝蛋白头部与肌动蛋白结合</option>
+                                <option value="D">D. 原肌球蛋白移位，暴露肌动蛋白结合位点</option>
+                            </select>
+                        </div>
+                        <div class="matching-item">
+                            <span class="item-text">2. 第二步</span>
+                            <select name="q6_2">
+                                <option value="">请选择...</option>
+                                <option value="A">A. 钙离子与旋转蛋白C结合</option>
+                                <option value="B">B. 神经冲动到达神经末梢</option>
+                                <option value="C">C. 肌凝蛋白头部与肌动蛋白结合</option>
+                                <option value="D">D. 原肌球蛋白移位，暴露肌动蛋白结合位点</option>
+                            </select>
+                        </div>
+                        <div class="matching-item">
+                            <span class="item-text">3. 第三步</span>
+                            <select name="q6_3">
+                                <option value="">请选择...</option>
+                                <option value="A">A. 钙离子与旋转蛋白C结合</option>
+                                <option value="B">B. 神经冲动到达神经末梢</option>
+                                <option value="C">C. 肌凝蛋白头部与肌动蛋白结合</option>
+                                <option value="D">D. 原肌球蛋白移位，暴露肌动蛋白结合位点</option>
+                            </select>
+                        </div>
+                        <div class="matching-item">
+                            <span class="item-text">4. 第四步</span>
+                            <select name="q6_4">
+                                <option value="">请选择...</option>
+                                <option value="A">A. 钙离子与旋转蛋白C结合</option>
+                                <option value="B">B. 神经冲动到达神经末梢</option>
+                                <option value="C">C. 肌凝蛋白头部与肌动蛋白结合</option>
+                                <option value="D">D. 原肌球蛋白移位，暴露肌动蛋白结合位点</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-section">
+                    <h3 class="section-title">第三部分：骨骼肌纤维类型</h3>
+                    
+                    <div class="question">
+                        <p class="question-text">7. 以下哪种肌纤维类型具有最高的耐疲劳性？</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q7" value="A">
+                                    A. I型（慢缩）肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q7" value="B">
+                                    B. IIa型（快缩耐力型）肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q7" value="C">
+                                    C. IIx型（快缩力量型）肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q7" value="D">
+                                    D. 所有肌纤维类型的耐疲劳性相同
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">8. 马拉松运动员的肌肉中通常含有较高比例的：</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q8" value="A">
+                                    A. I型肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q8" value="B">
+                                    B. IIx型肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q8" value="C">
+                                    C. IIb型肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q8" value="D">
+                                    D. 所有类型的肌纤维比例相同
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question">
+                        <p class="question-text">9. 以下关于肌纤维类型的描述，哪一项是正确的？</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q9" value="A">
+                                    A. 肌纤维类型完全由遗传决定，不受训练影响
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q9" value="B">
+                                    B. 力量训练可以将I型肌纤维完全转化为II型肌纤维
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q9" value="C">
+                                    C. 耐力训练可以提高I型肌纤维的有氧代谢能力
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q9" value="D">
+                                    D. 所有肌肉中I型和II型肌纤维的比例都相同
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="quiz-section">
+                    <h3 class="section-title">第四部分：肌肉力量的调节</h3>
+                    
+                    <div class="question">
+                        <p class="question-text">10. 肌肉的力-速度关系表明：</p>
+                        <ul class="options">
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q10" value="A">
+                                    A. 肌肉收缩速度越快，产生的力量越大
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q10" value="B">
+                                    B. 肌肉收缩速度与产生的力量无关
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q10" value="C">
+                                    C. 肌肉收缩速度越快，产生的力量越小
+                                </label>
+                            </li>
+                            <li class="option">
+                                <label>
+                                    <input type="radio" name="q10" value="D">
+                                    D. 肌肉收缩速度与产生的力量呈正弦关系
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="question short-answer-question">
+                        <p class="question-text">11. 简述神经系统如何调节肌肉力量的产生（至少列举三种机制）。</p>
+                        <textarea name="q11" placeholder="请在此输入您的答案..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="submit-section">
+                    <button type="button" class="submit-btn" id="submit-quiz">提交答案</button>
+                </div>
+            </form>
+            
+            <div class="result-container" id="result-container">
+                <h3 class="result-title">测验结果</h3>
+                <p class="score">得分：<span id="score">0</span>/11</p>
+                <p class="feedback" id="feedback"></p>
+                <button type="button" class="retry-btn" id="retry-btn">重新测试</button>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于课程</a></li>
+                <li><a href="references.html">参考资料</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <p class="copyright">© 2025 骨骼肌：结构与功能 | 运动生理学课程</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 测验评分系统
+        document.getElementById('submit-quiz').addEventListener('click', function() {
+            // 正确答案
+            const answers = {
+                q1: 'B',
+                q2: 'B',
+                q3: 'C',
+                q4: 'B',
+                q5: 'B',
+                q6_1: 'B',
+                q6_2: 'A',
+                q6_3: 'D',
+                q6_4: 'C',
+                q7: 'A',
+                q8: 'A',
+                q9: 'C',
+                q10: 'C'
+            };
+            
+            const form = document.getElementById('quiz-form');
+            let score = 0;
+            
+            // 检查单选题答案
+            for (let i = 1; i <= 10; i++) {
+                if (i === 6) continue; // 跳过匹配题
+                
+                const questionName = 'q' + i;
+                const selectedOption = form.elements[questionName].value;
+                
+                if (selectedOption === answers[questionName]) {
+                    score++;
+                }
+            }
+            
+            // 检查匹配题答案
+            let matchingCorrect = true;
+            for (let i = 1; i <= 4; i++) {
+                const questionName = 'q6_' + i;
+                const selectedOption = form.elements[questionName].value;
+                
+                if (selectedOption !== answers[questionName]) {
+                    matchingCorrect = false;
+                    break;
+                }
+            }
+            
+            if (matchingCorrect) {
+                score++;
+            }
+            
+            // 检查简答题（简单评分，只要有内容就给分）
+            const shortAnswer = form.elements['q11'].value.trim();
+            if (shortAnswer.length > 50) {
+                score++;
+            }
+            
+            // 显示结果
+            document.getElementById('score').textContent = score;
+            
+            // 根据得分提供反馈
+            let feedback = '';
+            if (score >= 9) {
+                feedback = '优秀！您对骨骼肌结构与功能有很深入的理解。';
+            } else if (score >= 7) {
+                feedback = '良好！您掌握了大部分骨骼肌的知识，但还有提升空间。';
+            } else if (score >= 5) {
+                feedback = '及格。您对骨骼肌有基本了解，建议复习薄弱环节。';
+            } else {
+                feedback = '需要加强学习。建议重新学习课程内容，特别关注基础概念。';
+            }
+            
+            document.getElementById('feedback').textContent = feedback;
+            document.getElementById('result-container').style.display = 'block';
+            
+            // 滚动到结果区域
+            document.getElementById('result-container').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // 重新测试按钮
+        document.getElementById('retry-btn').addEventListener('click', function() {
+            document.getElementById('quiz-form').reset();
+            document.getElementById('result-container').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

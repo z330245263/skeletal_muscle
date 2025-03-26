@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌纤维类型的分类 | 骨骼肌：结构与功能</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .sidebar {
+            align-self: start;
+        }
+        
+        .module-nav {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .module-nav-title {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .module-nav-links {
+            list-style: none;
+        }
+        
+        .module-nav-links a {
+            display: block;
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .module-nav-links a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .module-nav-links a.active {
+            background-color: #f0f7ff;
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .resources {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1rem;
+        }
+        
+        .resources-title {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .resources-links {
+            list-style: none;
+        }
+        
+        .resources-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources-links a {
+            display: block;
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        .resources-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+        }
+        
+        .content ul, .content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--light-color);
+            text-align: left;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-button.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .interactive-element {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .interactive-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .interactive-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .dropdown-content a {
+                color: white;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>肌纤维类型的分类</h1>
+            <p class="subtitle">模块三：骨骼肌纤维类型</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li>
+                    <a href="#">骨骼肌基础结构</a>
+                    <div class="dropdown-content">
+                        <a href="../module1/overview.html">骨骼肌概述</a>
+                        <a href="../module1/microstructure.html">骨骼肌的微观结构</a>
+                        <a href="../module1/proteins.html">肌肉蛋白质与收缩装置</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌收缩机制</a>
+                    <div class="dropdown-content">
+                        <a href="../module2/junction.html">神经肌肉接头</a>
+                        <a href="../module2/coupling.html">兴奋-收缩偶联</a>
+                        <a href="../module2/energy.html">肌肉收缩的能量供应</a>
+                        <a href="../module2/fatigue.html">肌肉疲劳与恢复</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌纤维类型</a>
+                    <div class="dropdown-content">
+                        <a href="classification.html">肌纤维类型的分类</a>
+                        <a href="characteristics.html">肌纤维类型的功能特性</a>
+                        <a href="performance.html">肌纤维类型与运动表现</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">肌肉力量的调节</a>
+                    <div class="dropdown-content">
+                        <a href="../module4/mechanisms.html">肌肉力量产生的机制</a>
+                        <a href="../module4/regulation.html">神经系统对肌肉力量的调节</a>
+                        <a href="../module4/applications.html">实际应用与案例分析</a>
+                    </div>
+                </li>
+                <li><a href="../quiz.html">自测练习</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="content">
+            <h2>骨骼肌纤维类型的多样性</h2>
+            <p>骨骼肌不是一个同质的组织，而是由多种不同类型的肌纤维组成的异质性组织。这些不同类型的肌纤维在结构、代谢和功能特性上存在显著差异，使得骨骼肌能够适应各种不同的运动需求，从短时间的高强度爆发力活动到长时间的低强度耐力活动。</p>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0812.jpg" alt="不同类型的肌纤维">
+                <p class="image-caption">图1：不同类型的肌纤维在组织切片中的显示（ATPase染色）</p>
+            </div>
+            
+            <h2 class="section-title">肌纤维类型分类的历史演变</h2>
+            <p>肌纤维类型的分类经历了多次演变，反映了研究方法和认识的不断深入：</p>
+            
+            <ol>
+                <li><strong>早期观察（19世纪末）</strong>：
+                    <ul>
+                        <li>基于肉眼观察，将肌肉分为"红肌"和"白肌"</li>
+                        <li>红肌（如鸡腿肉）含有较多肌红蛋白，白肌（如鸡胸肉）含有较少肌红蛋白</li>
+                    </ul>
+                </li>
+                <li><strong>收缩速度分类（20世纪中期）</strong>：
+                    <ul>
+                        <li>基于肌纤维收缩速度，分为慢缩（slow-twitch）和快缩（fast-twitch）肌纤维</li>
+                        <li>慢缩肌纤维收缩速度慢但耐疲劳，快缩肌纤维收缩速度快但易疲劳</li>
+                    </ul>
+                </li>
+                <li><strong>代谢特性分类</strong>：
+                    <ul>
+                        <li>基于能量代谢方式，分为氧化型（oxidative）和糖酵解型（glycolytic）肌纤维</li>
+                        <li>氧化型肌纤维主要依赖有氧代谢，糖酵解型肌纤维主要依赖无氧糖酵解</li>
+                    </ul>
+                </li>
+                <li><strong>组织化学分类</strong>：
+                    <ul>
+                        <li>基于肌凝蛋白ATPase活性，分为I型、IIA型和IIB型（现在称为IIX型）肌纤维</li>
+                        <li>这种分类方法至今仍广泛使用</li>
+                    </ul>
+                </li>
+                <li><strong>分子生物学分类（现代）</strong>：
+                    <ul>
+                        <li>基于肌凝蛋白重链（MHC）亚型的表达，分为I型、IIa型、IIx型和IIb型</li>
+                        <li>人类骨骼肌主要表达I型、IIa型和IIx型MHC，很少或不表达IIb型MHC</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="highlight-box">
+                <h3>术语说明</h3>
+                <p>在人类研究中，常用罗马数字（I、II）和小写字母（a、x）表示肌纤维类型（如I型、IIa型、IIx型）；而在动物研究中，则常用罗马数字和大写字母（如I型、IIA型、IIB型）。这种差异反映了人类和其他哺乳动物在肌纤维类型分布上的差异。</p>
+            </div>
+            
+            <h2 class="section-title">现代肌纤维类型分类系统</h2>
+            <p>目前，最广泛接受的肌纤维分类系统是基于肌凝蛋白重链（MHC）亚型的表达，结合代谢和功能特性的综合分类：</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>特性</th>
+                        <th>I型（慢缩）</th>
+                        <th>IIa型（快缩耐力型）</th>
+                        <th>IIx型（快缩力量型）</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>肌凝蛋白重链</td>
+                        <td>MHC I</td>
+                        <td>MHC IIa</td>
+                        <td>MHC IIx</td>
+                    </tr>
+                    <tr>
+                        <td>收缩速度</td>
+                        <td>慢</td>
+                        <td>快</td>
+                        <td>最快</td>
+                    </tr>
+                    <tr>
+                        <td>ATPase活性</td>
+                        <td>低</td>
+                        <td>高</td>
+                        <td>最高</td>
+                    </tr>
+                    <tr>
+                        <td>力量产生能力</td>
+                        <td>低</td>
+                        <td>中</td>
+                        <td>高</td>
+                    </tr>
+                    <tr>
+                        <td>耐疲劳性</td>
+                        <td>高</td>
+                        <td>中</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>线粒体密度</td>
+                        <td>高</td>
+                        <td>中高</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>毛细血管密度</td>
+                        <td>高</td>
+                        <td>中</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>肌红蛋白含量</td>
+                        <td>高</td>
+                        <td>中</td>
+                        <td>低</td>
+                    </tr>
+                    <tr>
+                        <td>主要能量系统</td>
+                        <td>有氧代谢</td>
+                        <td>有氧和无氧混合</td>
+                        <td>无氧糖酵解</td>
+                    </tr>
+                    <tr>
+                        <td>肌糖原含量</td>
+                        <td>中</td>
+                        <td>高</td>
+                        <td>高</td>
+                    </tr>
+                    <tr>
+                        <td>颜色</td>
+                        <td>红（深色）</td>
+                        <td>红-粉（中等）</td>
+                        <td>白（浅色）</td>
+                    </tr>
+                    <tr>
+                        <td>纤维直径</td>
+                        <td>小</td>
+                        <td>中</td>
+                        <td>大</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="interactive-element">
+                <h3 class="interactive-title">交互式工具：肌纤维类型比较</h3>
+                <div class="interactive-content">
+                    <div id="fiber-type-comparison"></div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">肌纤维类型的鉴定方法</h2>
+            <p>研究人员使用多种技术来鉴定和分析不同类型的肌纤维：</p>
+            
+            <ol>
+                <li><strong>组织化学染色</strong>：
+                    <ul>
+                        <li><strong>肌凝蛋白ATPase染色</strong>：基于不同pH条件下肌凝蛋白ATPase活性的差异</li>
+                        <li><strong>NADH-TR染色</strong>：反映线粒体酶活性，用于评估氧化能力</li>
+                        <li><strong>PAS染色</strong>：显示肌糖原含量</li>
+                        <li><strong>SDH染色</strong>：反映琥珀酸脱氢酶活性，评估有氧代谢能力</li>
+                    </ul>
+                </li>
+                <li><strong>免疫组织化学</strong>：
+                    <ul>
+                        <li>使用特异性抗体识别不同类型的肌凝蛋白重链</li>
+                        <li>可以同时检测多种MHC亚型的表达</li>
+                        <li>能够识别混合型肌纤维（同时表达多种MHC亚型的肌纤维）</li>
+                    </ul>
+                </li>
+                <li><strong>分子生物学技术</strong>：
+                    <ul>
+                        <li><strong>RT-PCR</strong>：检测不同MHC基因的mRNA表达</li>
+                        <li><strong>Western blot</strong>：检测不同MHC蛋白的表达水平</li>
+                        <li><strong>单纤维分析</strong>：分析单个肌纤维的蛋白质组成和代谢特性</li>
+                    </ul>
+                </li>
+                <li><strong>功能测试</strong>：
+                    <ul>
+                        <li><strong>收缩速度测量</strong>：评估肌纤维的收缩和舒张速度</li>
+                        <li><strong>疲劳测试</strong>：评估肌纤维的耐疲劳性</li>
+                        <li><strong>代谢测量</strong>：评估肌纤维的代谢特性和能量利用方式</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0813.jpg" alt="肌纤维类型鉴定方法">
+                <p class="image-caption">图2：不同染色方法下的肌纤维类型显示</p>
+            </div>
+            
+            <h2 class="section-title">混合型肌纤维</h2>
+            <p>除了典型的I型、IIa型和IIx型肌纤维外，骨骼肌中还存在表达多种MHC亚型的混合型肌纤维：</p>
+            
+            <ul>
+                <li><strong>I/IIa混合型</strong>：同时表达MHC I和MHC IIa，具有介于I型和IIa型之间的特性</li>
+                <li><strong>IIa/IIx混合型</strong>：同时表达MHC IIa和MHC IIx，具有介于IIa型和IIx型之间的特性</li>
+                <li><strong>I/IIa/IIx混合型</strong>：同时表达三种MHC亚型，较为罕见</li>
+            </ul>
+            
+            <p>混合型肌纤维的存在增加了骨骼肌适应不同功能需求的灵活性，也是肌纤维类型转化的中间状态。在运动训练或去训练过程中，肌纤维类型的转化通常经过混合型肌纤维阶段。</p>
+            
+            <div class="highlight-box">
+                <h3>研究进展</h3>
+                <p>近年来的研究表明，混合型肌纤维比以前认为的更为普遍，特别是在经常进行训练的肌肉中。这些肌纤维可能代表了肌肉对不同类型训练刺激的适应过程，具有独特的功能特性。</p>
+            </div>
+            
+            <h2 class="section-title">肌纤维类型的分布</h2>
+            <p>不同肌肉中肌纤维类型的分布存在显著差异，反映了肌肉的功能特性：</p>
+            
+            <ul>
+                <li><strong>姿势肌</strong>（如腓肠肌深层、脊柱旁肌）：富含I型肌纤维，适合长时间的低强度收缩</li>
+                <li><strong>精细运动肌肉</strong>（如眼外肌、手指肌）：含有特化的肌纤维类型，适合精确控制</li>
+                <li><strong>大型运动肌肉</strong>（如股四头肌、三角肌）：I型和II型肌纤维混合分布，适合多种运动需求</li>
+            </ul>
+            
+            <p>即使在同一块肌肉内，肌纤维类型的分布也不均匀，通常呈现区域性差异。例如，股四头肌中的股直肌含有较多的II型肌纤维，而股内侧肌则含有较多的I型肌纤维。</p>
+            
+            <p>此外，肌纤维类型的分布还受到以下因素的影响：</p>
+            <ul>
+                <li><strong>遗传因素</strong>：个体间肌纤维类型分布的差异有很大的遗传成分</li>
+                <li><strong>性别</strong>：女性通常比男性有更高比例的I型肌纤维</li>
+                <li><strong>年龄</strong>：随着年龄增长，II型肌纤维比例和大小通常会减少</li>
+                <li><strong>训练状态</strong>：长期的特定类型训练可以导致肌纤维类型比例的适应性变化</li>
+                <li><strong>激素水平</strong>：某些激素（如睾酮）可以影响肌纤维类型的发展和维持</li>
+            </ul>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0814.jpg" alt="不同肌肉的肌纤维类型分布">
+                <p class="image-caption">图3：人体不同肌肉中I型和II型肌纤维的典型分布比例</p>
+            </div>
+            
+            <h2 class="section-title">肌纤维类型与运动员选材</h2>
+            <p>不同运动项目的优秀运动员通常表现出特定的肌纤维类型分布模式：</p>
+            
+            <ul>
+                <li><strong>耐力型运动员</strong>（如马拉松运动员、长距离游泳运动员）：
+                    <ul>
+                        <li>通常具有较高比例的I型肌纤维（可达70-80%）</li>
+                        <li>有利于长时间的低强度运动</li>
+                    </ul>
+                </li>
+                <li><strong>力量/速度型运动员</strong>（如短跑运动员、举重运动员）：
+                    <ul>
+                        <li>通常具有较高比例的II型肌纤维（可达60-70%）</li>
+                        <li>有利于产生大力量和高速度</li>
+                    </ul>
+                </li>
+                <li><strong>混合型运动员</strong>（如中距离跑运动员、团体球类运动员）：
+                    <ul>
+                        <li>通常具有较为平衡的I型和II型肌纤维分布</li>
+                        <li>有利于兼顾力量、速度和耐力需求</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p>肌纤维类型分布在运动员选材中具有重要意义，但需要注意的是，肌纤维类型只是影响运动表现的众多因素之一，不应过度强调其决定性作用。此外，适当的训练可以优化现有肌纤维类型的功能特性，即使无法完全改变肌纤维类型的比例。</p>
+            
+            <div class="navigation-buttons">
+                <a href="../module2/fatigue.html" class="nav-button">上一节：肌肉疲劳与恢复</a>
+                <a href="characteristics.html" class="nav-button">下一节：肌纤维类型的功能特性</a>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="module-nav">
+                <h3 class="module-nav-title">模块三：骨骼肌纤维类型</h3>
+                <ul class="module-nav-links">
+                    <li><a href="classification.html" class="active">肌纤维类型的分类</a></li>
+                    <li><a href="characteristics.html">肌纤维类型的功能特性</a></li>
+                    <li><a href="performance.html">肌纤维类型与运动表现</a></li>
+                </ul>
+            </div>
+            
+            <div class="resources">
+                <h3 class="resources-title">学习资源</h3>
+                <ul class="resources-links">
+                    <li><a href="#">肌纤维类型染色图谱</a></li>
+                    <li><a href="#">肌纤维类型分布数据库</a></li>
+                    <li><a href="#">肌纤维类型研究方法</a></li>
+                    <li><a href="#">最新研究文献推荐</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于课程</a></li>
+                <li><a href="../references.html">参考资料</a></li>
+                <li><a href="../contact.html">联系我们</a></li>
+            </ul>
+            <p class="copyright">© 2025 骨骼肌：结构与功能 | 运动生理学课程</p>
+        </div>
+    </footer>
+    
+    <script src="../js/interactive.js"></script>
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 初始化肌纤维类型比较工具
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof FiberTypeComparison !== 'undefined') {
+                new FiberTypeComparison('fiber-type-comparison');
+            } else {
+                document.getElementById('fiber-type-comparison').innerHTML = 
+                    '<p style="text-align:center; padding: 50px 0;">肌纤维类型比较工具将在这里加载...</p>' +
+                    '<p style="text-align:center;">(完整版课程中包含交互式比较工具)</p>';
+            }
+        });
+    </script>
+</body>
+</html>

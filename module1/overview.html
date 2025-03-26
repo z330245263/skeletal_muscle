@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>骨骼肌概述 | 骨骼肌：结构与功能</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .sidebar {
+            align-self: start;
+        }
+        
+        .module-nav {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .module-nav-title {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .module-nav-links {
+            list-style: none;
+        }
+        
+        .module-nav-links a {
+            display: block;
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .module-nav-links a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .module-nav-links a.active {
+            background-color: #f0f7ff;
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .resources {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1rem;
+        }
+        
+        .resources-title {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .resources-links {
+            list-style: none;
+        }
+        
+        .resources-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources-links a {
+            display: block;
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        .resources-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+        }
+        
+        .content ul, .content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--light-color);
+            text-align: left;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-button.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .dropdown-content a {
+                color: white;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>骨骼肌概述</h1>
+            <p class="subtitle">模块一：骨骼肌基础结构</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li>
+                    <a href="#">骨骼肌基础结构</a>
+                    <div class="dropdown-content">
+                        <a href="overview.html">骨骼肌概述</a>
+                        <a href="microstructure.html">骨骼肌的微观结构</a>
+                        <a href="proteins.html">肌肉蛋白质与收缩装置</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌收缩机制</a>
+                    <div class="dropdown-content">
+                        <a href="../module2/junction.html">神经肌肉接头</a>
+                        <a href="../module2/coupling.html">兴奋-收缩偶联</a>
+                        <a href="../module2/energy.html">肌肉收缩的能量供应</a>
+                        <a href="../module2/fatigue.html">肌肉疲劳与恢复</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌纤维类型</a>
+                    <div class="dropdown-content">
+                        <a href="../module3/classification.html">肌纤维类型的分类</a>
+                        <a href="../module3/characteristics.html">肌纤维类型的功能特性</a>
+                        <a href="../module3/performance.html">肌纤维类型与运动表现</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">肌肉力量的调节</a>
+                    <div class="dropdown-content">
+                        <a href="../module4/mechanisms.html">肌肉力量产生的机制</a>
+                        <a href="../module4/regulation.html">神经系统对肌肉力量的调节</a>
+                        <a href="../module4/applications.html">实际应用与案例分析</a>
+                    </div>
+                </li>
+                <li><a href="../quiz.html">自测练习</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="content">
+            <h2>骨骼肌在人体中的位置和功能</h2>
+            <p>人体中有超过600块骨骼肌，占总体重的40%-50%。骨骼肌是人体运动系统的重要组成部分，通过与骨骼、关节和神经系统的协同作用，实现身体的各种运动。骨骼肌通过肌腱附着在骨骼上，一端连接不动的骨骼（起点），另一端连接可移动的骨骼（止点），当肌肉收缩时带动骨骼运动。</p>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0801.jpg" alt="骨骼肌的宏观结构">
+                <p class="image-caption">图1：骨骼肌的宏观结构，展示了肌肉、肌腱和骨骼的连接关系</p>
+            </div>
+            
+            <p>骨骼肌执行三个重要功能：</p>
+            <ol>
+                <li><strong>运动功能</strong>：产生力量用于行走、跑步、呼吸等活动</li>
+                <li><strong>姿势支持</strong>：维持身体姿势和平衡</li>
+                <li><strong>产热功能</strong>：在寒冷环境中产生热量维持体温</li>
+            </ol>
+            
+            <p>近年研究还表明，骨骼肌还具有内分泌功能，能够分泌多种肌肉因子（肌因子），参与调节人体多个系统的功能。</p>
+            
+            <div class="highlight-box">
+                <h3>研究焦点</h3>
+                <p>骨骼肌作为内分泌器官的概念是近年来运动生理学研究的热点。肌肉在运动过程中释放的肌因子可以影响脂肪代谢、免疫功能和大脑健康，这为理解运动对全身健康的益处提供了新的视角。</p>
+            </div>
+            
+            <h2 class="section-title">骨骼肌与其他肌肉类型的比较</h2>
+            <p>人体中存在三种主要类型的肌肉组织：骨骼肌、心肌和平滑肌。这三种肌肉在结构、功能和控制机制上有显著差异。</p>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>特征</th>
+                        <th>骨骼肌</th>
+                        <th>心肌</th>
+                        <th>平滑肌</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>外观</td>
+                        <td>有明显横纹</td>
+                        <td>有横纹，有分支</td>
+                        <td>无横纹</td>
+                    </tr>
+                    <tr>
+                        <td>细胞核</td>
+                        <td>多核，位于细胞周边</td>
+                        <td>单核或双核，位于中央</td>
+                        <td>单核，位于中央</td>
+                    </tr>
+                    <tr>
+                        <td>控制方式</td>
+                        <td>随意肌（受意识控制）</td>
+                        <td>非随意肌</td>
+                        <td>非随意肌</td>
+                    </tr>
+                    <tr>
+                        <td>收缩速度</td>
+                        <td>快速</td>
+                        <td>中等</td>
+                        <td>缓慢</td>
+                    </tr>
+                    <tr>
+                        <td>疲劳性</td>
+                        <td>容易疲劳</td>
+                        <td>不易疲劳</td>
+                        <td>不易疲劳</td>
+                    </tr>
+                    <tr>
+                        <td>分布位置</td>
+                        <td>附着于骨骼</td>
+                        <td>仅存在于心脏</td>
+                        <td>内脏器官、血管壁</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p>骨骼肌是唯一受意识控制的肌肉类型，这使得我们能够精确控制身体的运动。骨骼肌的收缩速度快，但也容易疲劳，这与其能量代谢特性有关。相比之下，心肌和平滑肌主要由自主神经系统控制，不受意识支配。</p>
+            
+            <h2 class="section-title">骨骼肌的宏观结构</h2>
+            <p>从宏观角度看，骨骼肌由以下几个主要部分组成：</p>
+            
+            <ul>
+                <li><strong>肌腹（muscle belly）</strong>：肌肉的主体部分，由肌纤维束组成，是产生收缩力的部位</li>
+                <li><strong>肌腱（tendon）</strong>：连接肌肉和骨骼的致密结缔组织，传递肌肉产生的力量</li>
+                <li><strong>筋膜（fascia）</strong>：包裹肌肉的结缔组织，将肌肉与周围组织分隔开</li>
+                <li><strong>血管</strong>：为肌肉提供氧气和营养物质，并带走代谢废物</li>
+                <li><strong>神经</strong>：传递从中枢神经系统发出的运动指令</li>
+            </ul>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0802.jpg" alt="骨骼肌的组织层次结构">
+                <p class="image-caption">图2：骨骼肌的组织层次结构，展示了从整块肌肉到肌纤维的组织关系</p>
+            </div>
+            
+            <p>骨骼肌的形状和大小各不相同，这与其功能密切相关。例如，负责精细动作的肌肉（如手指肌肉）通常较小且形状简单，而负责大幅度运动或支撑的肌肉（如大腿肌肉）则较大且结构复杂。</p>
+            
+            <p>根据肌肉对关节运动的影响，骨骼肌可分为：</p>
+            <ul>
+                <li><strong>屈肌（flexors）</strong>：使关节角度减小的肌肉</li>
+                <li><strong>伸肌（extensors）</strong>：使关节角度增大的肌肉</li>
+                <li><strong>内收肌（adductors）</strong>：使肢体向身体中线移动的肌肉</li>
+                <li><strong>外展肌（abductors）</strong>：使肢体远离身体中线的肌肉</li>
+                <li><strong>旋转肌（rotators）</strong>：使肢体绕其长轴旋转的肌肉</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3>应用知识</h3>
+                <p>了解骨骼肌的宏观结构对运动科学、物理治疗和运动训练至关重要。例如，在设计力量训练计划时，需要考虑目标肌肉的解剖位置、起止点和功能，以选择最有效的训练动作。</p>
+            </div>
+            
+            <h2 class="section-title">骨骼肌的连接与运动</h2>
+            <p>骨骼肌通过肌腱连接到骨骼上，形成杠杆系统。当肌肉收缩时，会产生拉力，通过肌腱传递到骨骼，从而引起骨骼的运动。这种杠杆系统的效率取决于肌肉的附着点位置、肌肉的收缩力和关节的结构。</p>
+            
+            <p>骨骼肌的运动可以分为三种基本类型：</p>
+            <ol>
+                <li><strong>向心收缩（concentric contraction）</strong>：肌肉收缩时长度缩短，如举起哑铃时的二头肌</li>
+                <li><strong>离心收缩（eccentric contraction）</strong>：肌肉在被拉长的同时产生力量，如放下哑铃时的二头肌</li>
+                <li><strong>等长收缩（isometric contraction）</strong>：肌肉产生力量但长度不变，如保持姿势时的核心肌群</li>
+            </ol>
+            
+            <p>在日常活动和运动中，这三种收缩类型通常交替进行，形成复杂的运动模式。了解这些基本收缩类型对于理解肌肉功能和设计训练计划至关重要。</p>
+            
+            <div class="navigation-buttons">
+                <a href="../index.html" class="nav-button">返回首页</a>
+                <a href="microstructure.html" class="nav-button">下一节：骨骼肌的微观结构</a>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="module-nav">
+                <h3 class="module-nav-title">模块一：骨骼肌基础结构</h3>
+                <ul class="module-nav-links">
+                    <li><a href="overview.html" class="active">骨骼肌概述</a></li>
+                    <li><a href="microstructure.html">骨骼肌的微观结构</a></li>
+                    <li><a href="proteins.html">肌肉蛋白质与收缩装置</a></li>
+                </ul>
+            </div>
+            
+            <div class="resources">
+                <h3 class="resources-title">学习资源</h3>
+                <ul class="resources-links">
+                    <li><a href="#">骨骼肌解剖图谱</a></li>
+                    <li><a href="#">肌肉收缩视频演示</a></li>
+                    <li><a href="#">肌肉类型比较表</a></li>
+                    <li><a href="#">推荐阅读材料</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于课程</a></li>
+                <li><a href="../references.html">参考资料</a></li>
+                <li><a href="../contact.html">联系我们</a></li>
+            </ul>
+            <p class="copyright">© 2025 骨骼肌：结构与功能 | 运动生理学课程</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

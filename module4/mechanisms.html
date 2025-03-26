@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>肌肉力量产生的机制 | 骨骼肌：结构与功能</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .sidebar {
+            align-self: start;
+        }
+        
+        .module-nav {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+        
+        .module-nav-title {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .module-nav-links {
+            list-style: none;
+        }
+        
+        .module-nav-links a {
+            display: block;
+            padding: 0.8rem 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+        }
+        
+        .module-nav-links a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .module-nav-links a.active {
+            background-color: #f0f7ff;
+            color: var(--primary-color);
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .resources {
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1rem;
+        }
+        
+        .resources-title {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .resources-links {
+            list-style: none;
+        }
+        
+        .resources-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .resources-links a {
+            display: block;
+            text-decoration: none;
+            color: var(--primary-color);
+            padding: 0.5rem 0;
+            transition: var(--transition);
+        }
+        
+        .resources-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+        }
+        
+        .content ul, .content ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .image-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .comparison-table th, .comparison-table td {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+        }
+        
+        .comparison-table th {
+            background-color: var(--light-color);
+            text-align: left;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .nav-button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+        
+        .nav-button.disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .interactive-element {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .interactive-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .interactive-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .dropdown-content a {
+                color: white;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>肌肉力量产生的机制</h1>
+            <p class="subtitle">模块四：肌肉力量的调节</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li>
+                    <a href="#">骨骼肌基础结构</a>
+                    <div class="dropdown-content">
+                        <a href="../module1/overview.html">骨骼肌概述</a>
+                        <a href="../module1/microstructure.html">骨骼肌的微观结构</a>
+                        <a href="../module1/proteins.html">肌肉蛋白质与收缩装置</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌收缩机制</a>
+                    <div class="dropdown-content">
+                        <a href="../module2/junction.html">神经肌肉接头</a>
+                        <a href="../module2/coupling.html">兴奋-收缩偶联</a>
+                        <a href="../module2/energy.html">肌肉收缩的能量供应</a>
+                        <a href="../module2/fatigue.html">肌肉疲劳与恢复</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌纤维类型</a>
+                    <div class="dropdown-content">
+                        <a href="../module3/classification.html">肌纤维类型的分类</a>
+                        <a href="../module3/characteristics.html">肌纤维类型的功能特性</a>
+                        <a href="../module3/performance.html">肌纤维类型与运动表现</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">肌肉力量的调节</a>
+                    <div class="dropdown-content">
+                        <a href="mechanisms.html">肌肉力量产生的机制</a>
+                        <a href="regulation.html">神经系统对肌肉力量的调节</a>
+                        <a href="applications.html">实际应用与案例分析</a>
+                    </div>
+                </li>
+                <li><a href="../quiz.html">自测练习</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="content">
+            <h2>肌肉力量的基本概念</h2>
+            <p>肌肉力量是指肌肉产生力量的能力，是运动表现的关键决定因素之一。从生理学角度看，肌肉力量是由多种因素共同决定的复杂特性，包括肌肉本身的结构特点、神经系统的调控以及生物力学因素等。</p>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0815.jpg" alt="肌肉力量产生示意图">
+                <p class="image-caption">图1：肌肉力量产生的基本机制示意图</p>
+            </div>
+            
+            <h2 class="section-title">肌肉力量的类型</h2>
+            <p>根据肌肉收缩的方式和特点，肌肉力量可以分为以下几种类型：</p>
+            
+            <ol>
+                <li><strong>最大力量（Maximum Strength）</strong>：
+                    <ul>
+                        <li>肌肉或肌群能够产生的最大力量</li>
+                        <li>通常通过一次最大重复（1RM）测试评估</li>
+                        <li>主要取决于肌肉横截面积和神经激活程度</li>
+                    </ul>
+                </li>
+                <li><strong>爆发力（Explosive Strength/Power）</strong>：
+                    <ul>
+                        <li>在短时间内产生力量的能力（力量×速度）</li>
+                        <li>通过垂直跳跃、投掷等测试评估</li>
+                        <li>取决于快速募集运动单位的能力和快肌纤维比例</li>
+                    </ul>
+                </li>
+                <li><strong>力量耐力（Strength Endurance）</strong>：
+                    <ul>
+                        <li>维持一定力量水平的持续时间</li>
+                        <li>通过重复次数或维持时间测试评估</li>
+                        <li>取决于肌肉的代谢特性和疲劳抵抗能力</li>
+                    </ul>
+                </li>
+                <li><strong>相对力量（Relative Strength）</strong>：
+                    <ul>
+                        <li>力量与体重的比值</li>
+                        <li>在需要移动自身体重的运动中尤为重要</li>
+                        <li>小体型运动员通常具有较高的相对力量</li>
+                    </ul>
+                </li>
+            </ol>
+            
+            <div class="highlight-box">
+                <h3>应用知识</h3>
+                <p>不同运动项目对不同类型力量的要求各不相同。例如，举重运动员需要极高的最大力量，短跑运动员需要出色的爆发力，而划船运动员则需要优秀的力量耐力。了解这些差异对于制定针对性的训练计划至关重要。</p>
+            </div>
+            
+            <h2 class="section-title">肌肉力量的生理学基础</h2>
+            <p>肌肉产生力量的能力基于以下几个关键的生理学机制：</p>
+            
+            <h3>1. 交叉桥循环与肌丝滑动</h3>
+            <p>肌肉收缩力的基本来源是肌凝蛋白头部与肌动蛋白的相互作用，即交叉桥循环：</p>
+            <ul>
+                <li>每个交叉桥在ATP水解的驱动下产生约3-5皮牛顿（pN）的力</li>
+                <li>单个肌节中有数百个交叉桥同时工作</li>
+                <li>肌肉总力量取决于激活的交叉桥数量和它们的同步程度</li>
+            </ul>
+            
+            <div class="interactive-element">
+                <h3 class="interactive-title">交互式工具：肌肉收缩力-速度关系</h3>
+                <div class="interactive-content">
+                    <div id="force-velocity-curve"></div>
+                </div>
+            </div>
+            
+            <h3>2. 肌肉的长度-张力关系</h3>
+            <p>肌肉产生的力量与其长度密切相关，这种关系被称为长度-张力关系：</p>
+            <ul>
+                <li><strong>最佳长度</strong>：肌肉在接近静息长度时产生最大力量</li>
+                <li><strong>过度伸长</strong>：肌丝重叠减少，交叉桥数量减少，力量下降</li>
+                <li><strong>过度缩短</strong>：肌丝过度重叠，相互干扰，力量下降</li>
+                <li><strong>被动张力</strong>：肌肉被拉长时，结缔组织产生额外的被动张力</li>
+            </ul>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0816.jpg" alt="肌肉长度-张力关系曲线">
+                <p class="image-caption">图2：肌肉长度-张力关系曲线，展示了主动张力、被动张力和总张力随肌肉长度的变化</p>
+            </div>
+            
+            <h3>3. 肌肉的力-速度关系</h3>
+            <p>肌肉收缩速度与其产生的力量呈反比关系，这种关系由Hill方程描述：</p>
+            <ul>
+                <li><strong>等长收缩</strong>：速度为零，产生最大力量</li>
+                <li><strong>向心收缩</strong>：速度越快，力量越小</li>
+                <li><strong>离心收缩</strong>：肌肉被动拉长时可产生超过等长最大力量的力</li>
+                <li><strong>功率曲线</strong>：力量×速度在中等负荷（约30-40%最大力量）时达到最大值</li>
+            </ul>
+            
+            <p>这种力-速度关系的生理学基础是：</p>
+            <ol>
+                <li>收缩速度增加时，交叉桥形成和解离的速率变化</li>
+                <li>高速收缩时，肌凝蛋白头部没有足够时间与肌动蛋白结合</li>
+                <li>离心收缩时，被动机械因素增加了总力量</li>
+            </ol>
+            
+            <h2 class="section-title">影响肌肉力量的结构因素</h2>
+            <p>肌肉的结构特性对其产生力量的能力有重要影响：</p>
+            
+            <h3>1. 肌肉横截面积</h3>
+            <p>肌肉的生理横截面积（PCSA）是决定最大力量的关键因素：</p>
+            <ul>
+                <li>PCSA与肌肉体积成正比，与肌纤维长度成反比</li>
+                <li>每平方厘米的肌肉横截面积可产生约30-40牛顿的力</li>
+                <li>肌肉肥大（肌纤维横截面积增加）是增加力量的重要机制</li>
+            </ul>
+            
+            <h3>2. 肌纤维类型组成</h3>
+            <p>不同类型的肌纤维具有不同的力量产生特性：</p>
+            <ul>
+                <li>II型（快缩）肌纤维的单位横截面积力量大于I型（慢缩）肌纤维</li>
+                <li>II型肌纤维收缩速度快，更适合产生爆发力</li>
+                <li>I型肌纤维耐疲劳性强，更适合维持长时间的力量输出</li>
+                <li>肌纤维类型比例部分由遗传决定，但可通过训练优化其功能特性</li>
+            </ul>
+            
+            <h3>3. 肌肉架构</h3>
+            <p>肌肉的架构特点对其功能有重要影响：</p>
+            <ul>
+                <li><strong>羽状肌</strong>：肌纤维与肌腱呈角度排列，单位体积内含有更多肌纤维，力量大但收缩幅度小（如股四头肌）</li>
+                <li><strong>梭状肌</strong>：肌纤维与肌腱平行排列，收缩幅度大但力量相对较小（如肱二头肌）</li>
+                <li><strong>羽状角</strong>：肌纤维与肌腱的夹角，影响力的传递效率</li>
+            </ul>
+            
+            <div class="image-container">
+                <img src="../images/pow37761_0817.jpg" alt="不同肌肉架构类型">
+                <p class="image-caption">图3：梭状肌和羽状肌的结构比较</p>
+            </div>
+            
+            <h3>4. 肌腱和结缔组织特性</h3>
+            <p>肌腱和其他结缔组织在力量传递和储能方面发挥重要作用：</p>
+            <ul>
+                <li>肌腱的弹性特性影响力量传递的效率</li>
+                <li>肌腱可以储存弹性势能，在伸展-缩短循环中释放</li>
+                <li>肌腱的横截面积和刚度影响力量传递和肌肉功能</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3>研究进展</h3>
+                <p>近年来的研究表明，肌腱的适应性比以前认为的更强。长期的力量训练不仅可以增加肌腱的横截面积，还可以改变其材料特性，提高其承受张力的能力，这对于预防运动损伤和提高力量表现都有重要意义。</p>
+            </div>
+            
+            <h2 class="section-title">肌肉力量的生物力学因素</h2>
+            <p>除了肌肉本身的特性外，生物力学因素也对肌肉产生的实际力量有重要影响：</p>
+            
+            <h3>1. 杠杆系统</h3>
+            <p>骨骼肌通过骨骼杠杆系统产生运动和力量：</p>
+            <ul>
+                <li>大多数骨骼肌作用于第三类杠杆（力臂小于阻力臂）</li>
+                <li>这种杠杆系统牺牲力量换取速度和运动范围</li>
+                <li>肌肉的附着点（力臂长度）影响力矩产生能力</li>
+            </ul>
+            
+            <h3>2. 关节角度</h3>
+            <p>关节角度影响肌肉力量的产生：</p>
+            <ul>
+                <li>影响肌肉的长度-张力关系</li>
+                <li>改变肌肉的力矩臂长度</li>
+                <li>影响肌肉的机械优势</li>
+            </ul>
+            
+            <p>例如，肘关节屈肌在肘关节屈曲约90°时产生最大力矩，这是由于在这个角度，肌肉长度接近最佳，且力矩臂较长。</p>
+            
+            <h3>3. 多关节协调</h3>
+            <p>许多肌肉跨越多个关节，其功能受到多关节协调的影响：</p>
+            <ul>
+                <li><strong>主动不足（Active Insufficiency）</strong>：当肌肉同时在多个关节产生动作时，无法在所有关节产生最大力量</li>
+                <li><strong>被动不足（Passive Insufficiency）</strong>：当拮抗肌在多个关节被拉长时，限制了运动范围</li>
+                <li><strong>协同收缩</strong>：多块肌肉协同工作，影响关节稳定性和力量产生</li>
+            </ul>
+            
+            <div class="navigation-buttons">
+                <a href="../module3/performance.html" class="nav-button">上一节：肌纤维类型与运动表现</a>
+                <a href="regulation.html" class="nav-button">下一节：神经系统对肌肉力量的调节</a>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="module-nav">
+                <h3 class="module-nav-title">模块四：肌肉力量的调节</h3>
+                <ul class="module-nav-links">
+                    <li><a href="mechanisms.html" class="active">肌肉力量产生的机制</a></li>
+                    <li><a href="regulation.html">神经系统对肌肉力量的调节</a></li>
+                    <li><a href="applications.html">实际应用与案例分析</a></li>
+                </ul>
+            </div>
+            
+            <div class="resources">
+                <h3 class="resources-title">学习资源</h3>
+                <ul class="resources-links">
+                    <li><a href="#">肌肉力量测量方法</a></li>
+                    <li><a href="#">力-速度关系动画</a></li>
+                    <li><a href="#">肌肉架构3D模型</a></li>
+                    <li><a href="#">最新研究文献推荐</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../about.html">关于课程</a></li>
+                <li><a href="../references.html">参考资料</a></li>
+                <li><a href="../contact.html">联系我们</a></li>
+            </ul>
+            <p class="copyright">© 2025 骨骼肌：结构与功能 | 运动生理学课程</p>
+        </div>
+    </footer>
+    
+    <script src="../js/interactive.js"></script>
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 初始化力-速度关系交互工具
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof ForceVelocityCurve !== 'undefined') {
+                new ForceVelocityCurve('force-velocity-curve');
+            } else {
+                document.getElementById('force-velocity-curve').innerHTML = 
+                    '<p style="text-align:center; padding: 50px 0;">力-速度关系交互工具将在这里加载...</p>' +
+                    '<p style="text-align:center;">(完整版课程中包含交互式工具)</p>';
+            }
+        });
+    </script>
+</body>
+</html>

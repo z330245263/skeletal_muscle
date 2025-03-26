@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究进展 | 骨骼肌：结构与功能</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+            --warning-color: #f39c12;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--box-shadow);
+            z-index: 1;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+        
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .nav-links li:hover .dropdown-content {
+            display: block;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .research-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .research-intro {
+            margin-bottom: 2rem;
+        }
+        
+        .research-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .research-card {
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .research-card h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .research-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .research-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .research-authors {
+            font-style: italic;
+        }
+        
+        .research-date {
+            background-color: var(--light-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: var(--border-radius);
+        }
+        
+        .research-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+        
+        .research-link:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .research-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 1rem 0;
+        }
+        
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag.molecular {
+            background-color: #d4efdf;
+            color: #27ae60;
+        }
+        
+        .tag.clinical {
+            background-color: #ebdef0;
+            color: #8e44ad;
+        }
+        
+        .tag.exercise {
+            background-color: #fdebd0;
+            color: #f39c12;
+        }
+        
+        .tag.imaging {
+            background-color: #d6eaf8;
+            color: #2980b9;
+        }
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-button {
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            background-color: var(--light-color);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-button:hover, .filter-button.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .highlight-box {
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0 1rem;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--secondary-color);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                box-shadow: none;
+                background-color: rgba(0,0,0,0.1);
+            }
+            
+            .dropdown-content a {
+                color: white;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>研究进展</h1>
+            <p class="subtitle">骨骼肌结构与功能领域的最新科研动态</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="nav-container">
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li>
+                    <a href="#">骨骼肌基础结构</a>
+                    <div class="dropdown-content">
+                        <a href="module1/overview.html">骨骼肌概述</a>
+                        <a href="module1/microstructure.html">骨骼肌的微观结构</a>
+                        <a href="module1/proteins.html">肌肉蛋白质与收缩装置</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌收缩机制</a>
+                    <div class="dropdown-content">
+                        <a href="module2/junction.html">神经肌肉接头</a>
+                        <a href="module2/coupling.html">兴奋-收缩偶联</a>
+                        <a href="module2/energy.html">肌肉收缩的能量供应</a>
+                        <a href="module2/fatigue.html">肌肉疲劳与恢复</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">骨骼肌纤维类型</a>
+                    <div class="dropdown-content">
+                        <a href="module3/classification.html">肌纤维类型的分类</a>
+                        <a href="module3/characteristics.html">肌纤维类型的功能特性</a>
+                        <a href="module3/performance.html">肌纤维类型与运动表现</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">肌肉力量的调节</a>
+                    <div class="dropdown-content">
+                        <a href="module4/mechanisms.html">肌肉力量产生的机制</a>
+                        <a href="module4/regulation.html">神经系统对肌肉力量的调节</a>
+                        <a href="module4/applications.html">实际应用与案例分析</a>
+                    </div>
+                </li>
+                <li><a href="quiz.html">自测练习</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="research-container">
+            <div class="research-intro">
+                <h2>骨骼肌研究的前沿进展</h2>
+                <p>骨骼肌结构与功能的研究领域正在快速发展，新的技术和方法不断涌现，使我们对肌肉生理学的理解不断深入。本页面汇集了该领域的最新研究进展，帮助您了解当前的热点话题和未来的研究方向。</p>
+            </div>
+            
+            <div class="filter-container">
+                <button class="filter-button active" data-filter="all">全部</button>
+                <button class="filter-button" data-filter="molecular">分子机制</button>
+                <button class="filter-button" data-filter="clinical">临床应用</button>
+                <button class="filter-button" data-filter="exercise">运动科学</button>
+                <button class="filter-button" data-filter="imaging">成像技术</button>
+            </div>
+            
+            <div class="research-section">
+                <h3 class="section-title">分子机制研究</h3>
+                
+                <div class="research-card" data-category="molecular">
+                    <div class="tag-container">
+                        <span class="tag molecular">分子机制</span>
+                        <span class="tag">肌凝蛋白</span>
+                        <span class="tag">结构生物学</span>
+                    </div>
+                    <h4>冷冻电镜技术揭示肌凝蛋白头部与肌动蛋白相互作用的精细结构</h4>
+                    <p>利用最新的冷冻电子显微镜技术，研究人员成功解析了肌凝蛋白头部与肌动蛋白结合时的高分辨率结构，为理解肌肉收缩的分子机制提供了新的见解。该研究首次在原子水平上展示了肌凝蛋白头部在不同构象状态下与肌动蛋白的相互作用，揭示了力量产生过程中的关键构象变化。</p>
+                    <p>这一发现不仅验证了摆动杠杆臂模型的核心假设，还识别了多个以前未知的相互作用位点，这些位点可能是未来靶向药物开发的潜在靶点。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Zhang et al.</span>
+                        <span class="research-date">2024</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+                
+                <div class="research-card" data-category="molecular">
+                    <div class="tag-container">
+                        <span class="tag molecular">分子机制</span>
+                        <span class="tag">钙信号</span>
+                        <span class="tag">基因表达</span>
+                    </div>
+                    <h4>新型钙敏感转录因子在骨骼肌适应性中的作用</h4>
+                    <p>最新研究发现了一种新的钙敏感转录因子CRTF1，它在骨骼肌对不同类型运动刺激的适应性反应中发挥关键作用。研究表明，CRTF1能够感知不同模式的钙信号（如持续低水平升高或短暂高水平脉冲），并相应地调节不同基因组的表达。</p>
+                    <p>这一发现解释了为什么耐力训练和力量训练会导致不同的适应性变化，为设计更有针对性的训练方案提供了理论基础。此外，研究人员还开发了一种小分子化合物，可以特异性激活CRTF1，有望用于治疗肌肉萎缩相关疾病。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Li et al.</span>
+                        <span class="research-date">2023</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+            </div>
+            
+            <div class="research-section">
+                <h3 class="section-title">临床应用研究</h3>
+                
+                <div class="research-card" data-category="clinical">
+                    <div class="tag-container">
+                        <span class="tag clinical">临床应用</span>
+                        <span class="tag">肌肉萎缩</span>
+                        <span class="tag">基因治疗</span>
+                    </div>
+                    <h4>基因编辑技术在肌营养不良症治疗中取得突破性进展</h4>
+                    <p>研究人员利用CRISPR-Cas9基因编辑技术，成功在杜氏肌营养不良症(DMD)动物模型中修复了肌肉细胞中的肌营养不良蛋白基因突变。这项研究采用了新型的腺相关病毒(AAV)载体系统，显著提高了基因编辑效率，并减少了脱靶效应。</p>
+                    <p>治疗后的动物模型表现出肌肉功能的显著改善，肌肉力量和耐力均接近正常水平。这一研究为DMD患者的基因治疗提供了新的希望，目前已经启动了I期临床试验。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Chen et al.</span>
+                        <span class="research-date">2024</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+                
+                <div class="research-card" data-category="clinical">
+                    <div class="tag-container">
+                        <span class="tag clinical">临床应用</span>
+                        <span class="tag">肌肉再生</span>
+                        <span class="tag">干细胞</span>
+                    </div>
+                    <h4>3D生物打印技术构建功能性骨骼肌组织</h4>
+                    <p>科学家们利用3D生物打印技术，成功构建了具有正常生理功能的骨骼肌组织。这项研究使用了患者自身的诱导多能干细胞(iPSCs)分化的肌肉前体细胞，结合特殊的生物材料支架，打印出了具有正确肌纤维排列和神经血管分布的肌肉组织。</p>
+                    <p>体外测试表明，这些生物打印的肌肉组织能够对电刺激产生正常的收缩反应，并且在移植到动物模型后能够与宿主神经和血管系统整合。这一技术有望用于严重肌肉损伤的修复和重建，以及各种肌肉疾病的个体化治疗模型开发。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Nakamura et al.</span>
+                        <span class="research-date">2023</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+            </div>
+            
+            <div class="research-section">
+                <h3 class="section-title">运动科学研究</h3>
+                
+                <div class="research-card" data-category="exercise">
+                    <div class="tag-container">
+                        <span class="tag exercise">运动科学</span>
+                        <span class="tag">肌纤维类型</span>
+                        <span class="tag">训练适应</span>
+                    </div>
+                    <h4>血流限制训练促进I型肌纤维代谢适应的新机制</h4>
+                    <p>最新研究揭示了低强度血流限制训练(BFR)能够同时诱导I型和II型肌纤维适应性变化的分子机制。传统观点认为，低强度训练主要激活I型肌纤维，而高强度训练才能有效激活II型肌纤维。</p>
+                    <p>然而，这项研究发现，BFR训练通过创造局部缺氧环境，激活了一条新的信号通路，使得即使在低强度负荷下，II型肌纤维也能被有效募集和刺激。这一发现为老年人和康复患者的肌肉训练提供了新的策略，使他们能够在低机械负荷条件下获得更全面的肌肉适应。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Wilson et al.</span>
+                        <span class="research-date">2023</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+                
+                <div class="research-card" data-category="exercise">
+                    <div class="tag-container">
+                        <span class="tag exercise">运动科学</span>
+                        <span class="tag">肌肉疲劳</span>
+                        <span class="tag">神经调控</span>
+                    </div>
+                    <h4>大脑皮层在长时间运动中的肌肉疲劳调控作用</h4>
+                    <p>这项研究使用功能性磁共振成像(fMRI)和经颅磁刺激(TMS)技术，探究了大脑皮层在长时间耐力运动中对肌肉疲劳的调控作用。研究发现，在长时间运动过程中，大脑运动皮层的激活模式会发生动态变化，这种变化与外周肌肉疲劳的发展密切相关。</p>
+                    <p>特别是，研究识别了前额叶皮层的特定区域，它们在感知疲劳和调整运动指令方面发挥关键作用。通过靶向刺激这些区域，研究人员成功延迟了疲劳的出现，提高了运动表现。这一发现为理解"中枢疲劳"现象提供了新的视角，也为提高耐力运动表现提供了潜在的干预策略。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Martinez et al.</span>
+                        <span class="research-date">2024</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+            </div>
+            
+            <div class="research-section">
+                <h3 class="section-title">成像技术研究</h3>
+                
+                <div class="research-card" data-category="imaging">
+                    <div class="tag-container">
+                        <span class="tag imaging">成像技术</span>
+                        <span class="tag">实时成像</span>
+                        <span class="tag">肌肉收缩</span>
+                    </div>
+                    <h4>超高速超声成像技术实时观察肌肉收缩动态</h4>
+                    <p>研究人员开发了一种新型超高速超声成像技术，能够以每秒10,000帧的速度捕捉肌肉收缩的动态过程。这一技术突破了传统超声成像的速度限制，使科学家能够实时观察肌肉收缩波的传播、肌纤维的运动和局部应变分布。</p>
+                    <p>研究团队利用这一技术，首次在无创条件下观察到了肌肉收缩过程中的机械波传播现象，并发现这种波的传播速度与肌肉力量和疲劳状态密切相关。这一技术有望成为评估肌肉功能和诊断肌肉疾病的新工具，特别是在运动医学和康复领域具有广阔的应用前景。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Tanter et al.</span>
+                        <span class="research-date">2023</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+                
+                <div class="research-card" data-category="imaging">
+                    <div class="tag-container">
+                        <span class="tag imaging">成像技术</span>
+                        <span class="tag">代谢成像</span>
+                        <span class="tag">肌纤维类型</span>
+                    </div>
+                    <h4>新型MRI技术无创鉴别活体肌纤维类型</h4>
+                    <p>研究人员开发了一种新型的磁共振成像(MRI)技术，能够在活体条件下无创地区分不同类型的肌纤维。这种技术结合了扩散张量成像(DTI)和化学交换饱和转移(CEST)MRI，能够同时提供肌纤维的结构和代谢信息。</p>
+                    <p>研究表明，这种技术能够准确区分I型和II型肌纤维，其结果与传统的肌肉活检和组织化学分析高度一致。这一技术突破为研究肌纤维类型在运动训练、老化和疾病过程中的变化提供了无创工具，有望在个体化训练处方和肌肉疾病早期诊断中发挥重要作用。</p>
+                    <div class="research-meta">
+                        <span class="research-authors">Kim et al.</span>
+                        <span class="research-date">2024</span>
+                    </div>
+                    <a href="#" class="research-link">阅读更多 →</a>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>未来研究方向</h3>
+                <p>骨骼肌研究领域正在向多学科、多尺度和个体化方向发展。未来的研究热点可能包括：</p>
+                <ul>
+                    <li>单细胞测序和空间转录组学技术在肌肉研究中的应用</li>
+                    <li>肌肉-神经-免疫系统相互作用的分子机制</li>
+                    <li>骨骼肌作为内分泌器官的功能及其在全身代谢调节中的作用</li>
+                    <li>基于人工智能的肌肉功能评估和训练优化系统</li>
+                    <li>精准医学在肌肉疾病诊断和治疗中的应用</li>
+                    <li>环境因素（如微重力、高原环境）对肌肉适应性的影响机制</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="about.html">关于课程</a></li>
+                <li><a href="references.html">参考资料</a></li>
+                <li><a href="contact.html">联系我们</a></li>
+            </ul>
+            <p class="copyright">© 2025 骨骼肌：结构与功能 | 运动生理学课程</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 移动端菜单切换
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // 研究内容筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const researchCards = document.querySelectorAll('.research-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 更新按钮状态
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    researchCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
